@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.5rem;
+
+    --premium-gradient-from: #6d28d9;
+    --premium-gradient-to: #2563eb;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263 70% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 262 83% 58%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263 70% 50%;
+
+    --premium-gradient-from: #4f46e5;
+    --premium-gradient-to: #2563eb;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Malayalam font styles */
+.malayalam-font {
+  font-family: var(--font-noto-serif-malayalam), serif;
+}
+
+.malayalam-title {
+  font-family: var(--font-noto-serif-malayalam), serif;
+  @apply font-bold tracking-tight;
+}
+
+.malayalam-content {
+  font-family: var(--font-noto-serif-malayalam), serif;
+  @apply leading-relaxed;
+}
+
+.malayalam-summary {
+  font-family: var(--font-noto-serif-malayalam), serif;
+  @apply text-muted-foreground;
+}
+
+/* Premium UI Components */
+@layer components {
+  .premium-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300;
+  }
+
+  .premium-button {
+    @apply relative overflow-hidden bg-gradient-premium text-white font-medium py-2 px-4 rounded-md shadow-md hover:shadow-lg transition-all duration-300;
+  }
+
+  .premium-input {
+    @apply bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-accent focus:border-transparent transition-all duration-200;
+  }
+
+  .premium-header {
+    @apply bg-gradient-premium text-white shadow-md;
+  }
+
+  .premium-section {
+    @apply bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-xl shadow-sm p-6;
+  }
+
+  .premium-badge {
+    @apply bg-gradient-premium text-white text-xs font-semibold px-2.5 py-0.5 rounded-full;
+  }
+
+  .premium-gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-premium font-bold;
+  }
+}
