@@ -153,6 +153,58 @@ suhba-archive/
 
 ## 🔐 Authentication Setup
 
+## 🔧 Initial Setup Guide
+When you first deploy the SUHBA Archive application, you'll need to complete an initial setup process to create the admin account and configure the system. Follow these steps to get started:
+
+### Accessing the Setup Page
+1. After deploying the application, navigate to the `/setup` URL (e.g., `https://your-domain.com/setup` or `http://localhost:3000/setup` for local development).
+2. You'll be presented with the initial setup form if no admin account exists yet.
+3. If an admin account already exists, this page will redirect to the login page.
+
+### Required Credentials
+To complete the setup, you'll need:
+- **Admin Name**: Choose a name for the primary administrator account
+- **Admin Email**: Enter a valid email address for the admin account
+- **Password**: Create a strong password (minimum 8 characters recommended)
+- **Secret Key**: Enter the `ADMIN_SECRET_KEY` value that you configured in your environment variables
+
+> ⚠️ **Important**: The secret key is a security measure to prevent unauthorized admin creation. This should match the `ADMIN_SECRET_KEY` value in your environment variables.
+
+### Step-by-Step Setup Process
+1. Fill in all the required fields in the setup form.
+2. Click the "Create Admin User" button.
+3. If successful, you'll see a confirmation message.
+4. You'll be automatically redirected to the login page after a few seconds.
+5. Log in with the email and password you just created.
+
+### After Setup Completion
+Once you've completed the initial setup:
+1. You'll have full access to the admin dashboard at `/admin`.
+2. From here, you can:
+   - Configure system settings
+   - Create and manage content
+   - Approve user registrations
+   - Upload status posts
+   - Manage news and events
+
+### Troubleshooting Setup Issues
+If you encounter problems during setup:
+- **"Invalid Secret Key" Error**: Ensure the secret key matches the `ADMIN_SECRET_KEY` in your environment variables.
+- **Setup Page Not Available**: If you can't access the setup page, an admin account might already exist. Try logging in or check your database.
+- **Redirect Loop**: Clear your browser cookies and cache, then try again.
+- **Database Connection Error**: Verify your MongoDB connection string in the environment variables.
+
+> 🔒 **Security Note**: After completing the initial setup, the `/setup` page will no longer be accessible as long as an admin account exists in the database. If you need to create a new admin account later, use the admin dashboard's user management section.
+
+### Reset Setup (If Needed)
+If you need to reset the setup process (for development or testing):
+1. Connect to your MongoDB database
+2. Delete all documents in the `users` collection
+3. Restart the application
+4. The `/setup` page will be available again
+
+> ⚠️ **Warning**: Never reset the setup in a production environment unless absolutely necessary, as this will delete all user accounts.
+
 ### Create Initial Admin
 
 1. Visit `/setup` to create the first admin user
