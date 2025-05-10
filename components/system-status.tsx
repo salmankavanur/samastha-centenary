@@ -151,7 +151,7 @@ export default function SystemStatus() {
                     <ul className="text-sm space-y-1 pl-5 list-disc">
                       {Object.entries(mongoStatus.stats || {}).map(([collection, count]) => (
                         <li key={collection}>
-                          {collection}: {count}
+                          {collection}: {count as number}
                         </li>
                       ))}
                     </ul>
