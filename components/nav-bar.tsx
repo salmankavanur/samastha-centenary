@@ -65,6 +65,25 @@ export default function NavBar() {
             >
               Calendar
             </Link>
+
+            <Link
+              href="/news"
+              className={`transition-colors hover:text-white/90 ${
+                isActive("/news") ? "text-white" : "text-white/80"
+              }`}
+            >
+              News
+            </Link>
+
+            <Link
+              href="/events"
+              className={`transition-colors hover:text-white/90 ${
+                isActive("/events") ? "text-white" : "text-white/80"
+              }`}
+            >
+              Events
+            </Link>
+
             {session && (
               <Link
                 href="/contribute"
@@ -183,6 +202,7 @@ export default function NavBar() {
                 <Calendar className="w-4 h-4 mr-2" />
                 Calendar
               </Link>
+              
               {session && (
                 <Link
                   href="/contribute"
