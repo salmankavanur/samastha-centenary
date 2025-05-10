@@ -26,6 +26,10 @@ export interface User {
 
 // Status post model
 export interface StatusPost {
+  imageHdUrl: string | undefined
+  description: ReactNode
+  title: any
+  imageWebUrl: string
   _id?: ObjectId
   day: string // YYYY-MM-DD format
   content: string

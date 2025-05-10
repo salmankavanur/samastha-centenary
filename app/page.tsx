@@ -39,6 +39,14 @@ export default async function Home() {
   const events = allEvents.map((event) => ({
     ...event,
     _id: event._id.toString(),
+    imageUrl: event.imageUrl || null, // Ensure imageUrl is defined
+    title: event.title || "Untitled Event", // Ensure title is defined
+    description: event.description || "No description available", // Ensure description is defined
+    featured: event.featured || false, // Ensure featured is defined
+    startDate: event.startDate || null, // Ensure startDate is defined
+    endDate: event.endDate || null, // Ensure endDate is defined
+    location: event.location || "Location not specified", // Ensure location is defined
+    registrationRequired: event.registrationRequired || false, // Ensure registrationRequired is defined
   }))
 
   console.log(`Homepage: Found ${events.length} events for display`)
@@ -162,7 +170,7 @@ export default async function Home() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {news.length > 0 ? (
               news.map((item) => (
-                <Card key={item._id} className="overflow-hidden hover:shadow-md transition-shadow">
+                <Card key={item._id.toString()} className="overflow-hidden hover:shadow-md transition-shadow">
                   {item.imageUrl ? (
                     <div className="relative h-48 w-full">
                       <img
