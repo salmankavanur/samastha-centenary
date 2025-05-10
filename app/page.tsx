@@ -285,8 +285,8 @@ export default async function Home() {
                     </div>
                   )}
                   <CardContent className="p-4">
-                    <h3 className="text-lg font-semibold mb-2 line-clamp-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-2 line-clamp-3">{item.description}</p>
+                    <h3 className="text-lg font-semibold mb-2 line-clamp-2 malayalam-title">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2 line-clamp-3 malayalam-content">{item.description}</p>
                     <div className="flex items-center text-xs text-muted-foreground mb-1">
                       <Calendar className="w-3 h-3 mr-1" />
                       {new Date(item.startDate).toLocaleDateString()}
