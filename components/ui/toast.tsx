@@ -20,6 +20,7 @@ const ToastViewport = React.forwardRef<
       className
     )}
     {...props}
+    style={{ pointerEvents: 'none' }} // Ensure consistent style
   />
 ))
 ToastViewport.displayName = ToastPrimitives.Viewport.displayName
