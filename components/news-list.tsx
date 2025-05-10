@@ -154,9 +154,9 @@ export default function NewsList() {
                     {tag}
                   </Badge>
                 ))}
-                {item.tags?.length > 3 && (
+                {(item.tags?.length ?? 0) > 3 && (
                   <Badge variant="outline" className="text-xs">
-                    +{item.tags.length - 3}
+                    +{(item.tags?.length ?? 0) - 3}
                   </Badge>
                 )}
               </div>
