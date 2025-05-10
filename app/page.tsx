@@ -14,6 +14,14 @@ import { calculateCurrentDayNumber, TOTAL_COUNTDOWN_DAYS } from "@/lib/date-util
 import { getNews } from "@/lib/db/news"
 import { getCollection } from "@/lib/mongodb"
 import { COLLECTIONS } from "@/lib/db/models"
+import { differenceInCalendarDays } from 'date-fns';
+
+const EVENT_DATE = new Date('2026-02-04'); // Event start date
+const TODAY = new Date(); // Server date (or use new Date(serverDate) if passed from backend)
+
+const remainingDays = differenceInCalendarDays(EVENT_DATE, TODAY);
+
+
 
 // Force dynamic rendering at the page level
 export const dynamic = "force-dynamic"
@@ -106,7 +114,9 @@ export default async function Home() {
           <MotionDiv variants={slideInLeft} className="mb-8 text-3xl font-bold text-center">
             Today's Status
             <div className="text-sm font-normal text-gray-500 mt-1">
-              Day {currentDay} of {TOTAL_COUNTDOWN_DAYS} • {TOTAL_COUNTDOWN_DAYS - currentDay} days remaining
+              Day {currentDay} of {TOTAL_COUNTDOWN_DAYS} • {remainingDays} days remaining
+              {/* Day {currentDay} of {TOTAL_COUNTDOWN_DAYS} • {TOTAL_COUNTDOWN_DAYS - currentDay} days remaining */}
+              {/* Day {currentDayNumber} of 300 • {currentDayNumber - 1} days remaining */}
             </div>
           </MotionDiv>
 
