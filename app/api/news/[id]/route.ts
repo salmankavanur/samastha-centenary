@@ -1,5 +1,17 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { getServerSession } from "next-auth/next"
+import { Session } from "next-auth"
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      name?: string | null
+      email?: string | null
+      image?: string | null
+      role?: string
+    }
+  }
+}
 import { authOptions } from "@/lib/auth"
 import { getNewsById, updateNews, deleteNews } from "@/lib/db/news"
 import { revalidatePath } from "next/cache"
@@ -23,8 +35,8 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 // PATCH /api/news/[id] - Update a news item
 export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const session = await getServerSession(authOptions)
-    if (!session || session.user.role !== "admin") {
+    const session = await getServerSession(authOptions) as Session & { user: { role?: string } }
+    if (!session || !session.user || session.user.role !== "admin") {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
     }
 
