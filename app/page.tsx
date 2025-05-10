@@ -62,13 +62,19 @@ export default async function Home() {
           variants={staggerContainer}
         >
           <MotionDiv variants={fadeIn} className="relative w-32 h-32 mb-6">
-            <Image src="/placeholder.svg?key=t160a" alt="SUHBA Logo" fill className="object-contain" priority />
+            <Image
+              src="/favicon.png"
+              alt="Samastha Centenary Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </MotionDiv>
           <MotionDiv variants={slideUp} className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">
-            SUHBA Countdown
+            Samastha Centenary Countdown
           </MotionDiv>
           <MotionDiv variants={slideUp} className="max-w-2xl mb-6 text-lg text-gray-600 dark:text-gray-400">
-            Suffa Dars Coordination under Alathurpadi Dars
+            SUHBA - Students Union for Suffa Dars Coordination under Alathurpadi Dars
           </MotionDiv>
 
           {/* Countdown Timer */}
