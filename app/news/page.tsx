@@ -25,7 +25,7 @@ export default function NewsPage() {
           </p>
         </div>
 
-        <Suspense fallback={<div className="text-center py-8">Loading news...</div>}>
+        <Suspense fallback={<div className="text-center py-8 ">Loading news...</div>}>
           <RealTimeNewsList limit={9} />
         </Suspense>
 

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { getNewsById } from "@/lib/db/news"
 import { formatDate } from "@/lib/utils"
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react"
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const news = await getNewsById(params.id)
@@ -59,18 +60,20 @@ export default async function NewsDetailPage({ params }: { params: { id: string 
           </div>
 
           <div className="prose dark:prose-invert max-w-none mb-8 malayalam-content">
-            {news.content.split("\n").map((paragraph, index) => (
+            {news.content.split("\n").map((paragraph: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined, index: Key | null | undefined) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
 
           {news.tags && news.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-8">
-              {news.tags.map((tag) => (
-                <Badge key={tag} variant="secondary">
-                  {tag}
-                </Badge>
-              ))}
+              {news.tags
+                .filter((tag: any) => typeof tag === "string" || typeof tag === "number") // Filter valid keys
+                .map((tag: string | number) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
             </div>
           )}
 
