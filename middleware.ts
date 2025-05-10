@@ -22,12 +22,16 @@ export async function middleware(request: NextRequest) {
     "/register",
     "/setup",
     "/calendar",
+    "/events",
+    "/news",
     "/api/init",
     "/api/test-db",
     "/api/debug-db",
     "/api/init-db",
     "/api/register",
     "/api/test-supabase",
+    "/api/news",
+    "/api/events",
   ]
 
   // Check if the path starts with any of these

@@ -21,14 +21,16 @@ export const metadata: Metadata = {
   title: "SUHBA - Suffa Dars Coordination Countdown",
   description: "300-day countdown calendar for Suffa Dars Coordination under Alathurpadi Dars",
   manifest: "/manifest.json",
-  themeColor: "#ffffff",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "SUHBA Countdown",
   },
-    
-}
+};
+
+export const viewport = {
+  themeColor: "#ffffff",
+};
 
 export default function RootLayout({
   children,
