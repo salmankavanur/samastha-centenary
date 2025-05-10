@@ -79,7 +79,11 @@ export default function AdminUsers() {
       }
 
       // Update local state
-      setUsers((prev) => prev.map((user) => (user._id === userId ? { ...user, badge: newBadge || null } : user)))
+      setUsers((prev) =>
+        prev.map((user) =>
+          user._id?.toString() === userId ? { ...user, badge: newBadge || undefined } : user
+        )
+      )
 
       toast({
         title: "Badge updated",
@@ -109,7 +113,7 @@ export default function AdminUsers() {
       }
 
       // Update local state
-      setUsers((prev) => prev.map((user) => (user._id === userId ? { ...user, isApproved: true } : user)))
+      setUsers((prev) => prev.map((user) => (user._id?.toString() === userId ? { ...user, isApproved: true } : user)))
 
       toast({
         title: "User approved",
