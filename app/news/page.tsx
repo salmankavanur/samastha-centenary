@@ -21,7 +21,7 @@ export default function NewsPage() {
           <Newspaper className="w-16 h-16 mb-4 text-primary" />
           <h1 className="mb-2 text-4xl font-bold tracking-tight md:text-5xl">News & Updates</h1>
           <p className="max-w-2xl mb-6 text-lg text-gray-600 dark:text-gray-400">
-            Stay informed with the latest news, announcements, and updates from SUHBA Countdown.
+            Stay informed with the latest news, announcements, and updates from Samastha Centenary Countdown.
           </p>
         </div>
 
