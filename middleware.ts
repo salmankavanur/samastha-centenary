@@ -43,6 +43,10 @@ export async function middleware(request: NextRequest) {
     "/manifest.webmanifest",
     "/images/",
     "/icons/",
+    "/news/",
+    "/events/",
+    "/api/news/",
+    "/api/events/",
   ]
 
   // Admin paths that require admin role
